@@ -1,5 +1,21 @@
-//reference: https://github.com/thomseddon/node-oauth2-server/blob/master/examples/postgresql/model.js
-
+/*
+ * Code reference: https://github.com/thomseddon/node-oauth2-server/blob/master/examples/postgresql/model.js
+ * Instructions: https://github.com/thomseddon/node-oauth2-server
+ * 
+ * URL: http://qaenv1authservice.azurewebsites.net/oauth/token
+ * grant_type=password&username=asaf&password=po09!@QW
+ * Headers:
+ *     Authorization:   Basic ZHVtbXlfY2xpZW50X2lkOmR1bW15X2NsaWVudF9zZWNyZXQ=  //the hash is the result of base64(dummy_client_id:dummy_client_secret)
+ *     Content-Type:    application/x-www-form-urlencoded
+ * 
+ * This is the expeted response:
+ * {
+ *  "token_type": "bearer",
+ *  "access_token": "1d8c5296899379797df71116641af52cb56d860c",
+ *  "expires_in": 3600
+ * }
+ *
+ */
 var model = module.exports,
   connString = process.env.DATABASE_URL;
 
